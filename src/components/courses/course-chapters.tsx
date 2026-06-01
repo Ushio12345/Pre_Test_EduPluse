@@ -11,7 +11,6 @@ type CourseCurriculumProps = {
 
 const CoursesChapter = ({ chapters, courseId }: CourseCurriculumProps) => {
   const router = useRouter();
-  console.log(chapters);
   const handleLessonRedirect = (lesson: Lesson) => {
 
     if (!courseId || courseId === "undefined") {

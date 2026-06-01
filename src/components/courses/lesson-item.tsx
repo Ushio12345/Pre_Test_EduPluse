@@ -11,7 +11,7 @@ interface LessonItemProps {
 }
 
 const LessonItem = ({ lesson, index, onChangePage }: LessonItemProps) => {
-  console.log(lesson);
+
 
   return (
     <div onClick={() => onChangePage(lesson)} className="p-3.5 px-5 flex items-center justify-between hover:bg-muted/20 transition-colors group cursor-pointer">
