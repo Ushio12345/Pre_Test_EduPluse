@@ -13,12 +13,13 @@ import { FieldLabel } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 
 import SocialLogin from "@/components/auth/social-login";
-import { GoogleIcon } from "@/components/icon/social-icon";
+
 
 export default function LoginForm() {
   const router = useRouter();
   const [authError, setAuthError] = useState("");
-  const initializeAuth = useAuthStore((state) => state.initializeAuth); const searchParams = useSearchParams();
+  const initializeAuth = useAuthStore((state) => state.initializeAuth);
+  const searchParams = useSearchParams();
   const fromUrl = searchParams.get("from") || "/courses";
 
   useEffect(() => {

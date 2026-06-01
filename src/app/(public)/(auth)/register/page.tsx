@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RegisterFormData, registerSchema } from "@/lib/validate/auth";
@@ -81,7 +81,7 @@ export default function RegisterForm() {
                     </div>
                 )}
 
-              {/* full name */}
+                {/* full name */}
                 <div className="space-y-2">
                     <FieldLabel htmlFor="fullName">Họ và tên</FieldLabel>
                     <Input
@@ -100,7 +100,7 @@ export default function RegisterForm() {
                             {errors.fullName.message}
                         </p>
                     )}
-                </div> 
+                </div>
                 {/* Email */}
                 <div className="space-y-2">
                     <FieldLabel htmlFor="email">Địa chỉ Email</FieldLabel>
@@ -141,7 +141,7 @@ export default function RegisterForm() {
                             {errors.password.message}
                         </p>
                     )}
-                    
+
                 </div>
 
                 <Button
