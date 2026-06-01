@@ -37,11 +37,11 @@ export default function AccurateTimer({ initialMinutes = 10, onTimeout }: Accura
     return (
         <Badge
             variant="outline"
-            className="px-2 py-1 text-sm font-semibold tracking-wide flex items-center gap-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20 font-mono shadow-sm rounded-xl select-none"
+            className="p-1 text-xs font-semibold tracking-wide flex items-center gap-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20 font-mono shadow-sm rounded-xl select-none"
         >
             <Timer className="h-4 w-4  shrink-0" />
 
-            <div className="flex items-center gap-0.5 tabular-nums">
+            <div className="flex items-center gap-0.5 tabular-nums sm:text-xs text-[10px]">
                 {hours > 0 && (
                     <>
                         <span>{format(hours)}</span>

@@ -12,7 +12,7 @@ export default async function QuizesePage() {
 
     if (!quizzes || quizzes.length === 0) {
         return (
-            <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 border-2 border-dashed border-border rounded-2xl bg-card text-center max-w-xl mx-auto my-10">
+            <div className="min-h-[60vh] flex flex-col items-center justify-center  border-2 border-dashed border-border rounded-2xl bg-card text-center max-w-xl mx-auto my-10">
                 <div className="p-4 rounded-full bg-muted border border-border text-muted-foreground mb-4">
                     <ClipboardX className="h-10 w-10 stroke-[1.5]" />
                 </div>

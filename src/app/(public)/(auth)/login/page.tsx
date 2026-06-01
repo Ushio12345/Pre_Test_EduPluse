@@ -13,6 +13,7 @@ import { FieldLabel } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 
 import SocialLogin from "@/components/auth/social-login";
+import { GoogleIcon } from "@/components/icon/social-icon";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -89,15 +90,7 @@ export default function LoginForm() {
         </div>
 
         <div className="space-y-2">
-          <div className="flex items-center justify-between">
-            <FieldLabel htmlFor="password">Mật khẩu</FieldLabel>
-            <Link
-              href="/forgot-password"
-              className="text-xs font-medium text-primary hover:underline"
-            >
-              Quên mật khẩu?
-            </Link>
-          </div>
+
           <Input
             id="password"
             type="password"

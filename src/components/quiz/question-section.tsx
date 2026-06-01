@@ -16,7 +16,7 @@ export default function QuestionSection({ currentQuestion, onSelectOption, userA
         <div className="space-y-6">
             <div className="flex items-start justify-between gap-4">
                 <h2 className="text-base sm:text-lg font-bold leading-snug">{currentQuestion.questionText}</h2>
-                <button className="p-2 rounded-lg bg-muted/60 text-custom-text-secondary border border-border/40 shrink-0"><Flag className="h-4 w-4" /></button>
+
             </div>
 
             <div className="space-y-3">
@@ -37,27 +37,33 @@ export default function QuestionSection({ currentQuestion, onSelectOption, userA
                 })}
             </div>
 
+            <div className="flex items-center justify-between mt-6 pt-6 border-t border-border w-full gap-2">
 
-            <div className="flex items-center justify-between mt-6 pt-6  border-t border-border ">
                 <Button
                     disabled={currentIndex === 0}
                     onClick={() => setCurrentQuestionIdx((prev) => prev - 1)}
-                    className="flex items-center gap-1.5 px-5 py-2 text-xs font-bold rounded-xl bg-foreground text-background hover:opacity-90 transition-all"
+                    className="flex items-center justify-center gap-1 sm:gap-1.5 px-3 sm:px-5 py-2 text-xs font-bold rounded-xl bg-foreground text-background hover:opacity-90 transition-all min-w-[40px] sm:min-w-0"
                 >
-                    <ChevronLeft className="h-4 w-4" /> Câu trước
+                    <ChevronLeft className="h-4 w-4 shrink-0" />
+                    <span className="hidden sm:inline">Câu trước</span>
                 </Button>
+
+
+                <span className="text-xs font-bold text-muted-foreground sm:hidden">
+                    {currentIndex + 1} / {totalQuestions}
+                </span>
 
 
                 <Button
                     disabled={currentIndex >= totalQuestions - 1}
                     onClick={() => setCurrentQuestionIdx((prev) => prev + 1)}
-                    className="flex items-center gap-1.5 px-5 py-2 text-xs font-bold rounded-xl bg-foreground text-background hover:opacity-90 transition-all"
+                    className="flex items-center justify-center gap-1 sm:gap-1.5 px-3 sm:px-5 py-2 text-xs font-bold rounded-xl bg-foreground text-background hover:opacity-90 transition-all min-w-[40px] sm:min-w-0"
                 >
-                    Câu tiếp theo <ChevronRight className="h-4 w-4" />
+                    <span className="hidden sm:inline">Câu tiếp theo</span>
+
+                    <span className="inline sm:hidden">Tiếp</span>
+                    <ChevronRight className="h-4 w-4 shrink-0" />
                 </Button>
-
-
-
             </div>
         </div>
     )

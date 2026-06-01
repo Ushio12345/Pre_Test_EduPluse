@@ -1,8 +1,7 @@
 import { QuizQuestion } from '@/lib/types/quiz.type';
 import React from 'react'
 import { Button } from '../ui/button';
-import { Badge } from '../ui/badge';
-import { formatDuration, formatQuizTime } from '@/lib/utils';
+
 import AccurateTimer from './accurate-timer';
 type QuizRightSectionProps = {
     questions: QuizQuestion[]

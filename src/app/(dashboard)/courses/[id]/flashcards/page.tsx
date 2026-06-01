@@ -12,8 +12,8 @@ export default async function FlashcardPage({ params }: { params: { id: string }
 
     if (!deck) {
         return (
-            <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 border-2 border-dashed border-border rounded-2xl bg-card text-center max-w-xl mx-auto my-10">
-                <div className="p-4 rounded-full bg-muted border border-border text-muted-foreground mb-4">
+            <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 border-2 border-dashed border-border rounded-2xl  text-center max-w-xl mx-auto my-10">
+                <div className="p-4 rounded-full border border-border text-muted-foreground mb-4">
                     <FolderX className="h-10 w-10 stroke-[1.5]" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-1.5">

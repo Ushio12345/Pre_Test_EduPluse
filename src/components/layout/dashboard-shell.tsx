@@ -13,6 +13,21 @@ const DashboardShell = ({ children }: { children: React.ReactNode }) => {
     const unsubscribe = initializeAuth()
     return () => unsubscribe();
   }, [initializeAuth]);
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsCollapsed(true);
+      }
+    };
+
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setIsCollapsed]);
   return (
 
     <div className="h-screen bg-background text-foreground flex w-full overflow-hidden">
@@ -28,7 +43,7 @@ const DashboardShell = ({ children }: { children: React.ReactNode }) => {
           <DashboardTopBar />
         </header>
 
-        <main className="flex-1 p-6 overflow-auto max-w-[1600px] w-full mx-auto">
+        <main className="flex-1 sm:p-6 p-2 overflow-auto max-w-[1600px] w-full mx-auto">
           {children}
         </main>
       </div>

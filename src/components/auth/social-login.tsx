@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 // import { GoogleIcon } from "@/components/icon/social-icon";
 import { loginWithGoogle } from "@/lib/services/auth-service";
+import { GoogleIcon } from "../icon/social-icon";
 
 interface SocialLoginProps {
   onError: (message: string) => void;
@@ -40,7 +41,7 @@ export default function SocialLogin({ onError }: SocialLoginProps) {
       onClick={handleGoogleLogin}
       disabled={loading}
     >
-      {/* <GoogleIcon /> */}
+      <GoogleIcon />
       {loading ? "Đang chuyển hướng..." : "Tiếp tục với Google"}
     </Button>
   );

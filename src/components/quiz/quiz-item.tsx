@@ -90,9 +90,9 @@ export default function QuizItem({ quiz }: QuizItemProps) {
     }
 
     return (
-        <div className="w-full max-w-6xl mx-auto space-y-6 p-4 sm:p-6 text-custom-text-primary">
+        <div className="w-full max-w-6xl mx-auto space-y-6 p-0 sm:p-4 text-custom-text-primary p-0">
             {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 ">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:p-4 p-0 ">
                 <div className="space-y-1.5">
                     <SectionHeading title={quiz?.title} />
                     <div className="flex items-center gap-2 text-xs font-semibold text-custom-text-secondary">
