@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormData, loginSchema } from "@/lib/validate/auth";
@@ -18,7 +18,8 @@ import { GoogleIcon } from "@/components/icon/social-icon";
 export default function LoginForm() {
   const router = useRouter();
   const [authError, setAuthError] = useState("");
-  const initializeAuth = useAuthStore((state) => state.initializeAuth);
+  const initializeAuth = useAuthStore((state) => state.initializeAuth); const searchParams = useSearchParams();
+  const fromUrl = searchParams.get("from") || "/courses";
 
   useEffect(() => {
     const unsubscribe = initializeAuth();
@@ -44,15 +45,18 @@ export default function LoginForm() {
 
       if (loggedInUser) {
         const token = await loggedInUser.getIdToken();
-        document.cookie = `access_token=${token}; path=/; max-age=3600; SameSite=Lax; Secure`;
+
+
+        document.cookie = `accessToken=${token}; path=/; max-age=3600; SameSite=Lax; Secure`;
       }
 
-      router.push("/dashboard");
+      router.push(fromUrl);
+      router.refresh();
+
     } catch (err: any) {
       setAuthError("Email hoặc mật khẩu không chính xác.");
     }
   };
-
   return (
     <div className="w-full space-y-6 justify-center items-center">
       <div className="space-y-2">

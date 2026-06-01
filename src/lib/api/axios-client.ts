@@ -14,7 +14,7 @@ class AxiosInstance {
 
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_COLAB_API_BASE_URL,
+      baseURL: process.env.EDU_API_BASE_URL,
       timeout: 10000,
       withCredentials: true,
     });

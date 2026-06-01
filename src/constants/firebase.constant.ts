@@ -1,5 +1,5 @@
-export const ACCESS_TOKEN = "access_token";
-export const REFRESH_TOKEN = "refresh_token";
+export const ACCESS_TOKEN = "accessToken";
+export const REFRESH_TOKEN = "refreshToken";
 export const FIREBASE_DEFAULT_APP = "default_app";
 export const EXTERNAL_LOGIN = "external";
 export const EMAIL_PASS_LOGIN = "email-password";

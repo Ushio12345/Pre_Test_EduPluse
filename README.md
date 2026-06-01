@@ -2,7 +2,7 @@
 
 ## Demo
 
-- Demo: https://pre-test-edu-pluse.vercel.app/
+- Deploy: https://pre-test-edu-pluse.vercel.app/
 - Repository: FE: https://github.com/Ushio12345/Pre_Test_EduPluse.git
 - Repository: BE: https://github.com/Ushio12345/Pre_Test_EduPluse_Data.git
 
@@ -83,7 +83,6 @@ Clone repository:
 
 ```bash
 git clone https://github.com/Ushio12345/Pre_Test_EduPluse.git
-cd Pre_Test_EduPluse
 ```
 
 Install dependencies:
@@ -112,25 +111,4 @@ http://localhost:3000
 npm run build
 npm run start
 ```
-
-
-## 🔮 Future Improvements
-
-- Dark Mode
-- Course Search & Filtering
-- Leaderboard
-- Certificate Generation
-- Real-time Quiz Analytics
-
----
-
-## Author
-
-Ushio
-
-GitHub:
-https://github.com/Ushio12345
-
----
-
 

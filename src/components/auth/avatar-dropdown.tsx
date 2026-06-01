@@ -94,7 +94,7 @@ export default function AvatarDropdown({ user }: Props) {
                     className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer focus:text-red-500 text-red-400"
                 >
                     <LogOut className="h-5 w-5" />
-                    <span className="font-semibold">Logout</span>
+                    <span className="font-semibold">Đăng xuất</span>
                 </DropdownMenuItem>
 
             </DropdownMenuContent>

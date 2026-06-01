@@ -10,6 +10,7 @@ interface DashboardAsideProps {
 }
 
 function DashboardAside({ isCollapsed, setIsCollapsed }: DashboardAsideProps) {
+  
   return (
     <aside
       className={`h-screen sticky top-0 border-r border-border bg-background flex flex-col  z-40 transition-all duration-300
