@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("access_token")?.value;
   const { pathname } = request.nextUrl;
 
-  const isPrivateRoute = pathname.startsWith("/profile") || pathname.startsWith("/dashboard");
+  const isPrivateRoute = pathname.startsWith("/profile") || pathname.startsWith("/courses");
 
   const isAuthRoute = pathname.startsWith("/login") || pathname.startsWith("/register");
 
@@ -16,7 +16,7 @@ export function middleware(request: NextRequest) {
   }
 
   if (isAuthRoute && token) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(new URL("/courses", request.url));
   }
 
   return NextResponse.next();
@@ -25,7 +25,8 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/profile/:path*",
-    "/dashboard/:path*",
+    "/courses/:path*",
+    "/quiz/:path*",
     "/login",
     "/register"
   ],

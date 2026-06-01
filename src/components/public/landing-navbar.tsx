@@ -19,12 +19,8 @@ const LandingNavbar = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link href="/dashboard" passHref>
-              <Button variant="ghost" className="text-sm font-medium">
-                Đăng nhập
-              </Button>
-            </Link>
-            <Link href="/dashboard" passHref>
+
+            <Link href="/courses" passHref>
               <Button className="rounded-xl px-5 shadow-sm font-medium">
                 Bắt đầu học
               </Button>
