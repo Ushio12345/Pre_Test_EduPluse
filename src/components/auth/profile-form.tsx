@@ -140,7 +140,7 @@ export default function ProfileForm({
       >
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-zinc-700  flex items-center gap-1.5">
+            <label className="text-sm font-medium  flex items-center gap-1.5">
               <User className="h-4 w-4 " />
               Họ và tên
             </label>
@@ -159,7 +159,7 @@ export default function ProfileForm({
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-zinc-700  flex items-center gap-1.5">
+            <label className="text-sm font-medium   flex items-center gap-1.5">
               <Mail className="h-4 w-4 " />
               Địa chỉ Email
             </label>

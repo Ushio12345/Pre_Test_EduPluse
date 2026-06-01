@@ -14,20 +14,20 @@ import { uploadFileToCloudanary } from "@/hooks/useUploadImage";
 export default function Profile({ profile }: any) {
   const [isUpdating, setIsUpdating] = useState(false);
 
-
   const handleUpdateProfile = async (
-    values: ProfileFormData & { avatarFile?: File | null }
+    values: ProfileFormData & { avatarFile?: File | null },
   ) => {
     if (!profile?.uid) return;
 
     setIsUpdating(true);
     try {
-
       let finalPhotoURL = profile.photoURL || "";
 
-
       if (values.avatarFile) {
-        const uploadRes = await uploadFileToCloudanary(values.avatarFile, "edupulse_avatars");
+        const uploadRes = await uploadFileToCloudanary(
+          values.avatarFile,
+          "edupulse_avatars",
+        );
 
         if (!uploadRes.success) {
           throw new Error(uploadRes.msg || "Không thể upload ảnh đại diện");
@@ -63,7 +63,7 @@ export default function Profile({ profile }: any) {
 
   return (
     <div className="min-h-screen w-full bg-background">
-      <div className="flex items-center justify-between h-16 border-b border-border ">
+      <div className="flex items-center justify-between h-16 border-b border-border md:px-20 px-4">
         <BackButton />
         <ThemeButton />
       </div>

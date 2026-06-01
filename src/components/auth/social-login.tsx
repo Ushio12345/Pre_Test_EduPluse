@@ -20,10 +20,9 @@ export default function SocialLogin({ onError }: SocialLoginProps) {
       const user = await loginWithGoogle();
 
       if (user) {
-
         const token = await user.getIdToken();
         document.cookie = `access_token=${token}; path=/; max-age=3600; SameSite=Lax; Secure`;
-        router.push("/dashboard");
+        router.push("/courses");
       }
     } catch (err: any) {
       console.error("Lỗi kích hoạt Đăng nhập Google:", err);

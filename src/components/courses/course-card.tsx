@@ -80,7 +80,7 @@ export default function CourseCard({ item }: CourseCardProps) {
             </span>
           </div>
 
-          <h3 className="text-xl font-bold tracking-tight group-hover:text-indigo-500 transition-colors line-clamp-1">
+          <h3 className="text-xl font-bold tracking-tight group-hover:text-secondary-500 transition-colors line-clamp-1">
             {item.title}
           </h3>
 
@@ -107,7 +107,7 @@ export default function CourseCard({ item }: CourseCardProps) {
 
       <div className="px-5 pb-5 pt-1">
         <Button
-          className="w-full bg-indigo-600 text-white hover:bg-indigo-700 font-bold rounded-xl py-2"
+          className="w-full bg-secondary-600 text-white hover:bg-secondary-700 font-bold rounded-xl py-2"
           onClick={() => router.push(`/courses/${item.id}`)}
         >
           {progress === 0 ? "Bắt đầu khóa học" : "Tiếp tục học"}
