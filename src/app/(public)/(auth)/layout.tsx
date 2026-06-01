@@ -1,10 +1,11 @@
+"use client";
+
 import AuthBanner from "@/components/auth/auth-banner";
 import Logo from "@/components/public/logo";
 import ThemeButton from "@/components/ui/theme-button";
-import logo from "@image/logo.png";
-import Image from "next/image";
+
 import Link from "next/link";
-import * as React from "react";
+import { Suspense } from "react";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -29,8 +30,11 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 bg-background text-foreground overflow-x-hidden pt-16 min-h-screen">
+
         <div className="flex flex-col justify-center items-center w-full p-4 sm:px-10 md:px-16 lg:px-32">
-          {children}
+          <Suspense fallback={<div className="text-center p-10 text-sm text-muted-foreground">Đang tải hệ thống...</div>}>
+            {children}
+          </Suspense>
         </div>
 
         <AuthBanner />
