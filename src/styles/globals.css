@@ -4,16 +4,17 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --color-background: #ffffff;
+    --color-foreground: #0f172a;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --color-card: #f6f6f6f6;
+    --color-card-foreground: #0f172a;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --color-popover: #ffffff;
+    --color-popover-foreground: #0f172a;
 
     --color-primary: #22c55e;
+    --color-primary-foreground: #ffffff;
     --color-primary-50: #edf8f1;
     --color-primary-100: #daf0e2;
     --color-primary-200: #b6e1c4;
@@ -27,6 +28,7 @@
     --color-primary-900: #0e2416;
 
     --color-secondary: #3b82f6;
+    --color-secondary-foreground: #ffffff;
     --color-secondary-50: #eff6ff;
     --color-secondary-100: #d0edff;
     --color-secondary-200: #a3dcff;
@@ -34,103 +36,67 @@
     --color-secondary-400: #409cff;
     --color-secondary-500: #007bff;
     --color-secondary-600: #0062cc;
-    --color-secondary-700: #004a99;
-    --color-secondary-800: #003166;
-    --color-secondary-900: #001933;
 
     --color-error-50: #fdecec;
-    --color-error-100: #fac5c5;
-    --color-error-200: #f8a9a9;
-    --color-error-300: #f48282;
     --color-error-400: #ff4d4f;
     --color-error-500: #f5222d;
-    --color-error-600: #cf1322;
-    --color-error-700: #a8071a;
-    --color-error-800: #820014;
-    --color-error-900: #5c0011;
 
-    --color-background-gradient-primary: linear-gradient(to right, #22c55e, #2fa3aa, #3593d0, #3b82f6);
-    --color-background: #ffffff;
-    --color-foreground: #edf2f7;
+    --color-muted: #f1f5f9;
+    --color-muted-foreground: #64748b;
 
-    --color-text-primary: #4c515b;
-    --color-text-secondary: #6b7280;
-    --color-text-error: var(--color-error-500);
+    --color-accent: #f1f5f9;
+    --color-accent-foreground: #0f172a;
 
-    --color-border-100: 245, 245, 245;
-    /* subtle border= 1 */
-    --color-border-200: 229, 229, 229;
-    /* subtle border- 2 */
-    --color-border-300: 212, 212, 212;
-    /* strong border- 1 */
-    --color-border-400: 185, 185, 185;
-    /* strong border- 2 */
-
-    --color-border-primary: #c2d8fc;
-    --color-border-secondary: #4c515b;
-    --color-border-error: var(--color-error-400);
-
-    --color-shadow-2xs: 0px 0px 1px 0px rgba(23, 23, 23, 0.06), 0px 1px 2px 0px rgba(23, 23, 23, 0.06), 0px 1px 2px 0px rgba(23, 23, 23, 0.14);
-    --color-shadow-xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.16), 0px 2px 4px 0px rgba(16, 24, 40, 0.12), 0px 1px 8px -1px rgba(16, 24, 40, 0.1);
-    --color-shadow-sm: 0px 1px 4px 0px rgba(0, 0, 0, 0.01), 0px 4px 8px 0px rgba(0, 0, 0, 0.02), 0px 1px 12px 0px rgba(0, 0, 0, 0.12);
-    --color-shadow-rg: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(16, 24, 40, 0.08), 0px 1px 12px 0px rgba(16, 24, 40, 0.04);
-    --color-shadow-md: 0px 4px 8px 0px rgba(0, 0, 0, 0.12), 0px 6px 12px 0px rgba(16, 24, 40, 0.12), 0px 1px 16px 0px rgba(16, 24, 40, 0.12);
-    --color-shadow-lg: 0px 6px 12px 0px rgba(0, 0, 0, 0.12), 0px 8px 16px 0px rgba(0, 0, 0, 0.12), 0px 1px 24px 0px rgba(16, 24, 40, 0.12);
-    --color-shadow-xl: 0px 0px 18px 0px rgba(0, 0, 0, 0.16), 0px 0px 24px 0px rgba(16, 24, 40, 0.16), 0px 0px 52px 0px rgba(16, 24, 40, 0.16);
-    --color-shadow-2xl: 0px 8px 16px 0px rgba(0, 0, 0, 0.12), 0px 12px 24px 0px rgba(16, 24, 40, 0.12), 0px 1px 32px 0px rgba(16, 24, 40, 0.12);
-    --color-shadow-3xl: 0px 12px 24px 0px rgba(0, 0, 0, 0.12), 0px 16px 32px 0px rgba(0, 0, 0, 0.12), 0px 1px 48px 0px rgba(16, 24, 40, 0.12);
-    --color-shadow-4xl: 0px 8px 40px 0px rgba(0, 0, 61, 0.05), 0px 12px 32px -16px rgba(0, 0, 0, 0.05);
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --color-border: #e2e8f0;
+    --color-input: #e2e8f0;
+    --color-ring: #22c55e;
 
     --radius: 0.5rem;
+    --color-gradient-primary: linear-gradient(to right,
+        #22c55e,
+        #2fa3aa,
+        #3593d0,
+        #3b82f6);
+
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #475569;
+    --color-text-error: #f5222d;
+    --color-border-primary: #e2e8f0;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --color-background: #0f172a;
+    --color-foreground: #f8fafc;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --color-card: #111b32;
+    --color-card-foreground: #f8fafc;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --color-popover: #0f172a;
+    --color-popover-foreground: #f8fafc;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --color-primary: #4ade80;
+    --color-primary-foreground: #0f172a;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --color-muted: #1e293b;
+    --color-muted-foreground: #94a3b8;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --color-accent: #1e293b;
+    --color-accent-foreground: #f8fafc;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --color-border: #1e293b;
+    --color-input: #1e293b;
+    --color-ring: #4ade80;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #94a3b8;
+    --color-text-error: #ff4d4f;
+    --color-border-primary: #1e293b;
   }
 }
 
 body {
-  color: var(--color-text-primary);
-  background: var(--color-background);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -139,7 +105,7 @@ html body[data-scroll-locked] {
   margin-right: 0 !important;
 }
 
-a @layer utilities {
+@layer utilities {
   .text-balance {
     text-wrap: balance;
   }

@@ -4,12 +4,13 @@ import "../styles/globals.css";
 import { ThemeProvider } from "@/lib/providers/theme-provider";
 import { QueryProvider } from "@/lib/providers/query-provider";
 import { Slide, ToastContainer } from "react-toastify";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mangan",
-  description: "Hệ thống quản lí xuất bản mangan",
+  title: "EduPluse",
+  description: "Hệ thống học tập trực tuyến",
 };
 
 export default function RootLayout({
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <ToastContainer
           position="top-right"
           autoClose={1500}
@@ -40,7 +41,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <TooltipProvider>
+              {children}
+            </TooltipProvider>
+
           </ThemeProvider>
         </QueryProvider>
       </body>

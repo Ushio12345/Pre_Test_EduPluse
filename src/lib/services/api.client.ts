@@ -1,17 +1,14 @@
-// lib/axios-client.ts
 import axios, {
   AxiosRequestConfig,
   AxiosResponse,
-  AxiosInstance as AxiosType, AxiosError,
+  AxiosInstance as AxiosType,
+  AxiosError,
 } from "axios";
 import { StatusCodes } from "http-status-codes";
-import { AuthResponse } from "@/types/auth.type";
-import { requestRefreshCredentials } from "@/lib/actions/auth.action";
 
 type RequestConfig = AxiosRequestConfig;
 
 class AxiosInstance {
-
   api: AxiosType;
 
   constructor() {
@@ -20,32 +17,66 @@ class AxiosInstance {
       timeout: 10000,
       withCredentials: true,
     });
-
-    this.api.defaults.withCredentials = true
-    this.setupInterceptors()
+    this.setupInterceptors();
   }
 
   private setupInterceptors() {
+    this.api.interceptors.request.use(
+      async (config) => {
+        if (typeof window !== "undefined") {
+          try {
+            const { getAuth } = await import("firebase/auth");
+            const auth = getAuth();
+            const user = auth.currentUser;
+            if (user) {
+              const token = await user.getIdToken();
+              config.headers.Authorization = `Bearer ${token}`;
+            }
+          } catch (e) {
+            console.error("Firebase Auth chưa sẵn sàng ở Client:", e);
+          }
+        }
+        return config;
+      },
+      (error) => Promise.reject(error),
+    );
+
     this.api.interceptors.response.use(
       (response) => response,
       async (error: AxiosError) => {
-        const originalRequest = error.config as AxiosRequestConfig & { _retry?: boolean };
+        const originalRequest = error.config as AxiosRequestConfig & {
+          _retry?: boolean;
+        };
 
-        if (error.response?.status === StatusCodes.UNAUTHORIZED && !originalRequest._retry) {
+        if (
+          error.response?.status === StatusCodes.UNAUTHORIZED &&
+          originalRequest &&
+          !originalRequest._retry
+        ) {
           originalRequest._retry = true;
 
-          const authResponse: AuthResponse | null = await requestRefreshCredentials()
-          if (authResponse) {
-            return this.api(originalRequest)
-          }
+          if (typeof window !== "undefined") {
+            try {
+              const { getAuth } = await import("firebase/auth");
+              const auth = getAuth();
+              const user = auth.currentUser;
+              if (user) {
+                const newToken = await user.getIdToken(true);
+                originalRequest.headers = originalRequest.headers || {};
+                originalRequest.headers.Authorization = `Bearer ${newToken}`;
+                return this.api(originalRequest);
+              }
+            } catch (refreshError) {
+              console.error("Firebase refresh token failed:", refreshError);
+            }
 
-          if (window.location.pathname !== "/login") {
-            window.location.href = "/login";
+            if (window.location.pathname !== "/login") {
+              window.location.href = "/login";
+            }
           }
         }
-
         return Promise.reject(error);
-      }
+      },
     );
   }
 
@@ -54,17 +85,29 @@ class AxiosInstance {
     return res.data;
   }
 
-  async post<T = any>(url: string, data?: any, config?: RequestConfig): Promise<T> {
+  async post<T = any>(
+    url: string,
+    data?: any,
+    config?: RequestConfig,
+  ): Promise<T> {
     const res = await this.api.post<T>(url, data, config);
     return res.data;
   }
 
-  async put<T = any>(url: string, data?: any, config?: RequestConfig): Promise<T> {
+  async put<T = any>(
+    url: string,
+    data?: any,
+    config?: RequestConfig,
+  ): Promise<T> {
     const res = await this.api.put<T>(url, data, config);
     return res.data;
   }
 
-  async patch<T = any>(url: string, data?: any, config?: RequestConfig): Promise<T> {
+  async patch<T = any>(
+    url: string,
+    data?: any,
+    config?: RequestConfig,
+  ): Promise<T> {
     const res = await this.api.patch<T>(url, data, config);
     return res.data;
   }
@@ -74,7 +117,11 @@ class AxiosInstance {
     return res.data;
   }
 
-  async request<T>(method: string, url: string, config?: RequestConfig): Promise<AxiosResponse<T>> {
+  async request<T>(
+    method: string,
+    url: string,
+    config?: RequestConfig,
+  ): Promise<AxiosResponse<T>> {
     return this.api.request<T>({
       method,
       url,

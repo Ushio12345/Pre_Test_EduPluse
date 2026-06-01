@@ -1,12 +1,13 @@
 export const API_CONFIG = {
-  BASE_URL: process.env.NEXT_PUBLIC_API_URL || "https://jsonplaceholder.typicode.com",
+  BASE_URL:
+    process.env.NEXT_PUBLIC_API_URL || "https://jsonplaceholder.typicode.com",
   TIMEOUT: 10000,
 } as const;
 
 export const ENDPOINTS = {
-  TODOS: "/todos",
-  USERS: "/users",
-  POSTS: "/posts",
+  COURSES: "/courses",
+  QUIZZES: "/quizzes",
+  FLASHCARDS: "/flashcard_decks",
 } as const;
 
 export const QUERY_KEYS = {
