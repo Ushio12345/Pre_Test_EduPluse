@@ -16,7 +16,7 @@ export default function QuestionSection({ currentQuestion, onSelectOption, userA
         <div className="space-y-6">
             <div className="flex items-start justify-between gap-4">
                 <h2 className="text-base sm:text-lg font-bold leading-snug">{currentQuestion.questionText}</h2>
-                <button className="p-2 rounded-lg bg-muted/60 text-custom-text-secondary border border-custom-border-primary/40 shrink-0"><Flag className="h-4 w-4" /></button>
+                <button className="p-2 rounded-lg bg-muted/60 text-custom-text-secondary border border-border/40 shrink-0"><Flag className="h-4 w-4" /></button>
             </div>
 
             <div className="space-y-3">
@@ -26,7 +26,7 @@ export default function QuestionSection({ currentQuestion, onSelectOption, userA
                         <div
                             key={option.optionId}
                             onClick={() => onSelectOption(option.optionId)}
-                            className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 select-none ${isSelected ? "border-secondary-500 bg-secondary-500/5 text-secondary-600" : "border-border hover:border-custom-border-primary/80 bg-card hover:bg-muted/30"}`}
+                            className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 select-none ${isSelected ? "border-secondary-500 bg-secondary-500/5 text-secondary-600" : "border-border hover:border-border/80 bg-card hover:bg-muted/30"}`}
                         >
                             <div className={`h-5 w-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${isSelected ? "border-secondary-500" : "border-zinc-400"}`}>
                                 {isSelected && <div className="h-2.5 w-2.5 rounded-full bg-secondary-500" />}

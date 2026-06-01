@@ -1,4 +1,4 @@
-"use client"; // 🌟 BẮT BUỘC: Chuyển hẳn sang Client để trình duyệt tự xử lý ảnh, Server không tải hộ nữa -> Hết lỗi 404
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -14,8 +14,7 @@ interface CourseCardProps {
 
 export default function CourseCard({ item }: CourseCardProps) {
   const router = useRouter();
-
-  const fallbackImage = process.env.NEXT_PUBLIC_FALLBACK_IMAGE;
+  const fallbackImage = process.env.NEXT_PUBLIC_FALLBACK_IMAGE || "@/images/default_image.jpeg";
 
   const [imgSrc, setImgSrc] = useState<string>(item.thumbnailURL || fallbackImage);
 
@@ -54,8 +53,7 @@ export default function CourseCard({ item }: CourseCardProps) {
   const currentLevel = levelStyles[item.level] || levelStyles.beginner;
 
   return (
-    <div className="group flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-border bg-card text-custom-text-primary shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-      {/* Thumbnail */}
+    <div className="group flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-border border-2 bg-card text-custom-text-primary shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
       <div className="relative aspect-[16/10] w-full bg-muted overflow-hidden">
         <Image
           src={imgSrc}
@@ -64,11 +62,9 @@ export default function CourseCard({ item }: CourseCardProps) {
           sizes="(max-w-7xl) 33vw, 100vw"
           className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
           priority={false}
-          // Nếu có bất kỳ link ảnh nào khác bị sập bất ngờ, hàm này sẽ tự động kích hoạt đổi ảnh
           onError={() => {
             setImgSrc(fallbackImage);
           }}
-          // Không tối ưu ảnh local để tránh lỗi Bad Request 400
           unoptimized={imgSrc === fallbackImage}
         />
         <span className="absolute left-4 top-4 rounded-lg bg-card px-3 py-1 text-xs font-semibold shadow-sm backdrop-blur-sm">
@@ -76,7 +72,6 @@ export default function CourseCard({ item }: CourseCardProps) {
         </span>
       </div>
 
-      {/* Content */}
       <div className="flex flex-1 flex-col p-5">
         <div className="flex-1 space-y-3">
           <div>
@@ -85,7 +80,7 @@ export default function CourseCard({ item }: CourseCardProps) {
             </span>
           </div>
 
-          <h3 className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors line-clamp-1">
+          <h3 className="text-xl font-bold tracking-tight group-hover:text-indigo-500 transition-colors line-clamp-1">
             {item.title}
           </h3>
 
@@ -95,7 +90,6 @@ export default function CourseCard({ item }: CourseCardProps) {
           </div>
         </div>
 
-        {/* Progress Bar */}
         <div className="mt-5 space-y-2">
           <div className="flex items-center justify-between text-xs font-bold text-custom-text-secondary">
             <span>
@@ -113,7 +107,7 @@ export default function CourseCard({ item }: CourseCardProps) {
 
       <div className="px-5 pb-5 pt-1">
         <Button
-          className="w-full"
+          className="w-full bg-indigo-600 text-white hover:bg-indigo-700 font-bold rounded-xl py-2"
           onClick={() => router.push(`/courses/${item.id}`)}
         >
           {progress === 0 ? "Bắt đầu khóa học" : "Tiếp tục học"}

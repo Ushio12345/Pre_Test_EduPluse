@@ -1,5 +1,5 @@
 import DashboardShell from "@/components/layout/dashboard-shell";
-import ProtectRoute from "@/components/protect-route";
+
 
 import React from "react";
 
